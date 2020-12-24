@@ -1,0 +1,11 @@
+Todo:
+  ✔ asdfasdfad
+
+API:
+  ✔ Create Api Skeleton
+  ✔ Make Surah Router
+  ✔ Connect it with mysql db
+
+UI:
+  ✔ Create UI in Angular
+  ✔ Link it up with API
