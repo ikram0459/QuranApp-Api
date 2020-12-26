@@ -6,7 +6,6 @@ import express from "express";
 import { httpLogger } from "./config/http-logger";
 import { logger } from "./config/logger";
 import { errorHandlerMiddleware } from "./middleware/error-handler";
-
 import apiSurahRouter from "./routes/api-surah-router";
 
 const startServer = async () => {

@@ -19,7 +19,7 @@ assert(process.env.ENV_TYPE !== undefined, "Missing ENV_TYPE env var");
 const appConfig: AppConfig = {
   connectionString: process.env.CONNECTION_STRING,
   database: process.env.DATABASE,
-  envType: process.env.ENV_TYPE,
-  secret: process.env.KEY_VAULT_NAME
+  secret: process.env.SECRET,
+  envType: process.env.ENV_TYPE
 };
 export { appConfig };
