@@ -1,9 +1,7 @@
 import { Router } from "@awaitjs/express";
 import core from "express-serve-static-core";
-import { connect } from "../config/mysqldb";
-
 import { getAyat, updateAyahWord } from "../controllers/surahayah.controller";
-import { ayat } from "../interface/ayat";
+import { ayatWord } from "../interface/ayatWord";
 import { validateSurahAyahRequest, validateSurahAyahWordRequest } from "./validation/surah-validators";
 
 interface GenerateSingleParams extends core.ParamsDictionary {
@@ -22,7 +20,7 @@ apiRouter.getAsync<GenerateSingleParams>("/:surahNumber/:ayahNumber", async (req
   }
 );
 
-apiRouter.postAsync<ayat>("/ayahword/", async (req, res) => {
+apiRouter.postAsync<ayatWord>("/ayahword/", async (req, res) => {
   await validateSurahAyahWordRequest(req.body);
   const response = await updateAyahWord(req.body);
   res.send({status: true, message: response});

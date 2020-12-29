@@ -1,5 +1,5 @@
 import { HTTP400Error } from "../../errors/errors";
-import { ayat } from "../../interface/ayat";
+import { ayatWord } from "../../interface/ayatWord";
 
 export const validateSurahAyahRequest = async (surahNumber: string, ayahNumber: string): Promise<void> => {
   const surah: number = +surahNumber;
@@ -15,7 +15,7 @@ export const validateSurahAyahRequest = async (surahNumber: string, ayahNumber: 
   }
 };
 
-export const validateSurahAyahWordRequest = async (ayatObj: ayat): Promise<void> => {
+export const validateSurahAyahWordRequest = async (ayatObj: ayatWord): Promise<void> => {
   if (ayatObj.word_id === undefined || ayatObj.word_id < 1 || isNaN(ayatObj.word_id)) {
     throw new HTTP400Error(`Resources for wordid "${ayatObj.word_id}" is not valid`);
   }

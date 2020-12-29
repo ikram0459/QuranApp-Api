@@ -1,6 +1,6 @@
 import { connect } from '../config/mysqldb';
 import { HTTP400Error } from '../errors/errors';
-import { ayat } from '../interface/ayat';
+import { ayatWord } from '../interface/ayatWord';
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export async function getAyat(surahNumber: string, ayatNumber: string) {    
@@ -9,7 +9,7 @@ export async function getAyat(surahNumber: string, ayatNumber: string) {
      return ayat[0];
 }
 
-export async function updateAyahWord(ayatObj: ayat): Promise<string> {
+export async function updateAyahWord(ayatObj: ayatWord): Promise<string> {
      try {
           const conn = await connect();
           let query = `update word_data set word_translation = '${ayatObj.word_translation}'`;

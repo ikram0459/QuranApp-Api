@@ -1,4 +1,4 @@
-export interface ayat {
+export interface ayatWord {
     word_id: number;
     word_surah: number;
     word_ayah: number;
