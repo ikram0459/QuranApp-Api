@@ -1,19 +1,31 @@
 import { HTTP400Error } from "../../errors/errors";
+import { ayat } from "../../interface/ayat";
 
-export const validateSurahSingleRequest = async (
-  surahNumber: string,
-  ayatNumber: string,
-  translationId: string
-): Promise<void> => {
-  if (surahNumber === undefined) {
+export const validateSurahAyahRequest = async (surahNumber: string, ayahNumber: string): Promise<void> => {
+  const surah: number = +surahNumber;
+  const ayah: number = +ayahNumber;
+  
+
+  if (surahNumber === undefined || (surah > 114 && surah < 1) || isNaN(surah)) {
     throw new HTTP400Error(`Resources for surahNumber "${surahNumber}" does not exist`);
   }
 
-  if (ayatNumber === undefined) {
-    throw new HTTP400Error(`Resources for ayatNumber "${ayatNumber}" does not exist`);
+  if (ayahNumber === undefined || (ayah > 286 && ayah < 1) || isNaN(ayah)) {
+    throw new HTTP400Error(`Resources for ayahNumber "${ayahNumber}" does not exist`);
   }
+};
 
-  // if (translationId === undefined) {
-  //   throw new HTTP400Error(`Resources for translationId "${translationId}" does not exist`);
-  // }
+export const validateSurahAyahWordRequest = async (ayatObj: ayat): Promise<void> => {
+  if (ayatObj.word_id === undefined || ayatObj.word_id < 1 || isNaN(ayatObj.word_id)) {
+    throw new HTTP400Error(`Resources for wordid "${ayatObj.word_id}" is not valid`);
+  }
+  if (ayatObj.word_translation !== undefined && (ayatObj.word_translation == null || ayatObj.word_translation == '')) {
+    throw new HTTP400Error(`Resources for word_translation "${ayatObj.word_translation}" is not valid`);
+  }
+  if (ayatObj.word_translation_urdu1 === undefined && (ayatObj.word_translation_urdu1 == null || ayatObj.word_translation_urdu1 == '')) {
+    throw new HTTP400Error(`Resources for word_translation urdu "${ayatObj.word_translation_urdu1}" is not valid`);
+  }
+  if (ayatObj.word_transliteration === undefined || ayatObj.word_transliteration == null || ayatObj.word_transliteration == '') {
+    throw new HTTP400Error(`Resources for word_transliteration "${ayatObj.word_transliteration}" is not valid`);
+  }  
 };
