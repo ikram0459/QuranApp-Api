@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS ayah_translation (
     word_surah int(3),
     word_ayah int(3),
     culture_code varchar(10),
-    ayat_translation varchar(1000)
+    ayah_translation varchar(1000)
 );
 
 

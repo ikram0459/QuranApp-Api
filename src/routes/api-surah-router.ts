@@ -1,5 +1,6 @@
 import { Router } from "@awaitjs/express";
 import core from "express-serve-static-core";
+
 import { getAyat, updateAyahWord } from "../controllers/surahayah.controller";
 import { ayatWord } from "../interface/ayatWord";
 import { validateSurahAyahRequest, validateSurahAyahWordRequest } from "./validation/surah-validators";
