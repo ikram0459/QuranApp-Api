@@ -7,6 +7,8 @@ import { httpLogger } from "./config/http-logger";
 import { logger } from "./config/logger";
 import { errorHandlerMiddleware } from "./middleware/error-handler";
 import apiSurahRouter from "./routes/api-surah-router";
+import apiTagRouter from "./routes/api-tag-router";
+import apiTranslationRouter from "./routes/api-translation-router";
 import apiTranslatorRouter from "./routes/api-translator-router";
 
 const startServer = async () => {
@@ -18,7 +20,9 @@ const startServer = async () => {
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
 
+  app.use("/tag/", apiTagRouter);
   app.use("/translator/", apiTranslatorRouter);
+  app.use("/translation/", apiTranslationRouter);
   app.use("/", apiSurahRouter);
 
   app.use(errorHandlerMiddleware());

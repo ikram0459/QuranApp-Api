@@ -15,6 +15,21 @@ CREATE TABLE IF NOT EXISTS ayah_translation (
     culture_code varchar(10),
     ayah_translation varchar(1000)
 );
+CREATE TABLE IF NOT EXISTS tag (
+    tag_id INT AUTO_INCREMENT PRIMARY KEY,
+    title varchar(500),
+    date_created datetime,
+    date_updated datetime,
+    updated_by int(10)
+);
+CREATE TABLE IF NOT EXISTS content_tag (
+    content_tag_id INT AUTO_INCREMENT PRIMARY KEY,
+    tag_id int(10),
+    ayah_translation_id int(10),
+    date_created datetime,
+    date_updated datetime,
+    updated_by int(10)
+);
 
 
 

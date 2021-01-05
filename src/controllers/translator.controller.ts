@@ -9,6 +9,13 @@ export async function getTranslator(ayahTranslatorId: string) {
      return translator[0];
 }
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+export async function getAllTranslators() {    
+    const conn = await connect();
+    const translation = await conn.query('SELECT * FROM ayah_translator');
+    return translation[0];
+}
+
 export async function updateTranslator(translatorObj: Translator): Promise<string> {
      try {
           const conn = await connect();
