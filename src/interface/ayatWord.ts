@@ -8,6 +8,9 @@ export interface ayatWord {
     word_number_in_ayah: number;
     word_type: string;
     word_arabic: string;
+    word_root: string;
+    word_arabic_uthmani: string;
+    word_arabic_indopak: string;
     word_transliteration: string;
     word_translation_urdu1: string;
     word_translation: string;

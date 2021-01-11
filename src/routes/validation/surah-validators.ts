@@ -15,6 +15,14 @@ export const validateSurahAyahRequest = async (surahNumber: string, ayahNumber: 
   }
 };
 
+export const validateSurahAyahWordIdRequest = async (wordId: string): Promise<void> => {
+  const word: number = +wordId;
+  
+  if (wordId === undefined || isNaN(word)) {
+    throw new HTTP400Error(`Resources for wordId "${word}" does not exist`);
+  }
+};
+
 export const validateSurahAyahWordRequest = async (ayatObj: ayatWord): Promise<void> => {
   if (ayatObj.word_id === undefined || ayatObj.word_id < 1 || isNaN(ayatObj.word_id)) {
     throw new HTTP400Error(`Resources for wordid "${ayatObj.word_id}" is not valid`);
