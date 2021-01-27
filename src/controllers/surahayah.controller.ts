@@ -3,9 +3,31 @@ import { HTTP400Error } from '../errors/errors';
 import { ayatWord } from '../interface/ayatWord';
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export async function getAyat(surahNumber: string, ayatNumber: string) {    
+export async function getAyat(surahNumber: string, ayahNumber: string) {    
      const conn = await connect();
-     const ayat = await conn.query('select * FROM word_data w where w.word_surah = '+surahNumber+' and w.word_ayah = '+ayatNumber);
+     const ayat = await conn.query('select * FROM word_data w where w.word_surah = '+surahNumber+' and w.word_ayah = '+ayahNumber);
+     return ayat[0];
+}
+
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+export async function getAyatRange(surahNumber: string, ayahNumber1: string, ayahNumber2: string) {    
+     const ayah1 = +ayahNumber1;
+     const ayah2 = +ayahNumber2;
+     const diff = ayah2 - ayah1;
+     let range = 0;
+     let rangeString = ``;
+
+     if (diff > 10)
+          range = 5;
+     else
+          range = diff;
+
+     for (let i = ayah1; i <= ayah1+range; i++) {
+          rangeString += `'${i}',`;
+     }
+     rangeString = rangeString.substring(0, rangeString.length-1);
+     const conn = await connect();
+     const ayat = await conn.query(`select * FROM word_data w where w.word_surah = '${surahNumber}' and w.word_ayah in (${rangeString})`);
      return ayat[0];
 }
 
