@@ -22,7 +22,7 @@ export async function getAyatRange(surahNumber: string, ayahNumber1: string, aya
      else
           range = diff;
 
-     for (let i = ayah1; i <= ayah1+range; i++) {
+     for (let i = ayah1; i <= (ayah1+range); i++) {
           rangeString += `'${i}',`;
      }
      rangeString = rangeString.substring(0, rangeString.length-1);
@@ -41,6 +41,7 @@ export async function getAyahWord(wordId: string) {
 export async function updateAyahWord(ayatObj: ayatWord): Promise<string> {
      try {
           const conn = await connect();
+
           let query = `update word_data set word_translation = '${ayatObj.word_translation}'`;
           if(ayatObj.word_transliteration != undefined)
                query += `,word_transliteration = '${ayatObj.word_transliteration}'`
@@ -52,6 +53,9 @@ export async function updateAyahWord(ayatObj: ayatWord): Promise<string> {
                query += `,word_arabic_uthmani = '${ayatObj.word_arabic_uthmani}'`
           if(ayatObj.word_root != undefined)
                query += `,word_root = '${ayatObj.word_root}'`
+          if(ayatObj.word_end != undefined)
+               query += `,word_end = ${ayatObj.word_end}`
+
           query += ` where word_id = ${ayatObj.word_id}`;
           await conn.query(query);
           return "row updated!";

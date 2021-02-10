@@ -14,5 +14,6 @@ export interface ayatWord {
     word_transliteration: string;
     word_translation_urdu1: string;
     word_translation: string;
+    word_end: boolean;
     created_at: Date;
 }

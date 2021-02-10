@@ -38,6 +38,7 @@ alter table word_data add column word_root varchar(200);
 alter table word_data add column word_arabic_uthmani varchar(200);
 alter table word_data add column word_arabic_indopak varchar(200);
 
-
+use quranwbw;
+alter table word_data add column word_end boolean not null default 0;
 
 
