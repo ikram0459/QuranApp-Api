@@ -50,9 +50,6 @@ export const validateSurahAyahWordRequest = async (ayatObj: ayatWord): Promise<v
   if (ayatObj.word_translation !== undefined && (ayatObj.word_translation == null || ayatObj.word_translation == '')) {
     throw new HTTP400Error(`Resources for word_translation "${ayatObj.word_translation}" is not valid`);
   }
-  if (ayatObj.word_translation_urdu1 === undefined && (ayatObj.word_translation_urdu1 == null || ayatObj.word_translation_urdu1 == '')) {
-    throw new HTTP400Error(`Resources for word_translation urdu "${ayatObj.word_translation_urdu1}" is not valid`);
-  }
   if (ayatObj.word_transliteration === undefined || ayatObj.word_transliteration == null || ayatObj.word_transliteration == '') {
     throw new HTTP400Error(`Resources for word_transliteration "${ayatObj.word_transliteration}" is not valid`);
   }  

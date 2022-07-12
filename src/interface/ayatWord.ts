@@ -12,8 +12,18 @@ export interface ayatWord {
     word_arabic_uthmani: string;
     word_arabic_indopak: string;
     word_transliteration: string;
-    word_translation_urdu1: string;
     word_translation: string;
     word_end: boolean;
+    word_translation_urdu_fhashmi: string;
+    word_translation_urdu_nhashmi: string;
+    word_translation_urdu_iipc: string;
+    word_translation_hindi: string;
+    word_translation_indonesian: string;
+    word_translation_bangla: string;
+    word_translation_turkish: string;
+    word_translation_german: string;
+    word_translation_russian: string;
+    word_translation_ingush: string;
+    word_translation_en_iipc: string;
     created_at: Date;
 }

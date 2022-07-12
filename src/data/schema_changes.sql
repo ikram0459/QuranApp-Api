@@ -1,5 +1,4 @@
-use quranwbw;	--29/12/2020 added new field
-alter table word_data add column word_translation_urdu1 varchar(200);
+
 
 use quranwbw;   --29/12/2020 ayah translator and translation table added
 CREATE TABLE IF NOT EXISTS ayah_translator (
@@ -41,4 +40,37 @@ alter table word_data add column word_arabic_indopak varchar(200);
 use quranwbw;
 alter table word_data add column word_end boolean not null default 0;
 
+--10/02/2021 added new field
+use quranwbw;	
+alter table word_data add column word_translation_urdu_fhashmi varchar(200);
+
+use quranwbw;	
+alter table word_data add column word_translation_urdu_nhashmi varchar(200);
+
+use quranwbw;	
+alter table word_data add column word_translation_urdu_iipc varchar(200);
+
+use quranwbw;	
+alter table word_data add column word_translation_hindi varchar(200);
+
+use quranwbw;	
+alter table word_data add column word_translation_indonesian varchar(200);
+
+use quranwbw;	
+alter table word_data add column word_translation_bangla varchar(200);
+
+use quranwbw;	
+alter table word_data add column word_translation_turkish varchar(200);
+
+use quranwbw;	
+alter table word_data add column word_translation_german varchar(200);
+
+use quranwbw;	
+alter table word_data add column word_translation_russian varchar(200);
+
+use quranwbw;	
+alter table word_data add column word_translation_ingush varchar(200);
+
+use quranwbw;	
+alter table word_data add column word_translation_en_iipc varchar(200);
 

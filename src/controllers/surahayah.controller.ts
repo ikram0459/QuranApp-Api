@@ -45,8 +45,6 @@ export async function updateAyahWord(ayatObj: ayatWord): Promise<string> {
           let query = `update word_data set word_translation = '${ayatObj.word_translation}'`;
           if(ayatObj.word_transliteration != undefined)
                query += `,word_transliteration = '${ayatObj.word_transliteration}'`
-          if(ayatObj.word_translation_urdu1 != undefined)
-               query += `,word_translation_urdu1 = '${ayatObj.word_translation_urdu1}'`
           if(ayatObj.word_arabic_indopak != undefined)
                query += `,word_arabic_indopak = '${ayatObj.word_arabic_indopak}'`
           if(ayatObj.word_arabic_uthmani != undefined)
@@ -55,8 +53,30 @@ export async function updateAyahWord(ayatObj: ayatWord): Promise<string> {
                query += `,word_root = '${ayatObj.word_root}'`
           if(ayatObj.word_end != undefined)
                query += `,word_end = ${ayatObj.word_end}`
-
-          query += ` where word_id = ${ayatObj.word_id}`;
+          if(ayatObj.word_translation_urdu_fhashmi != undefined)
+               query += `,word_translation_urdu_fhashmi = '${ayatObj.word_translation_urdu_fhashmi}'`
+          if(ayatObj.word_translation_urdu_nhashmi != undefined)
+               query += `,word_translation_urdu_nhashmi = '${ayatObj.word_translation_urdu_nhashmi}'`    
+          if(ayatObj.word_translation_urdu_iipc != undefined)
+               query += `,word_translation_urdu_iipc = '${ayatObj.word_translation_urdu_iipc}'`    
+          if(ayatObj.word_translation_hindi != undefined)
+               query += `,word_translation_hindi = '${ayatObj.word_translation_hindi}'`    
+          if(ayatObj.word_translation_indonesian != undefined)
+               query += `,word_translation_indonesian = '${ayatObj.word_translation_indonesian}'`    
+          if(ayatObj.word_translation_bangla != undefined)
+               query += `,word_translation_bangla = '${ayatObj.word_translation_bangla}'`    
+          if(ayatObj.word_translation_turkish != undefined)
+               query += `,word_translation_turkish = '${ayatObj.word_translation_turkish}'`    
+          if(ayatObj.word_translation_german != undefined)
+               query += `,word_translation_german = '${ayatObj.word_translation_german}'`    
+          if(ayatObj.word_translation_russian != undefined)
+               query += `,word_translation_russian = '${ayatObj.word_translation_russian}'`    
+          if(ayatObj.word_translation_ingush != undefined)
+               query += `,word_translation_ingush = '${ayatObj.word_translation_ingush}'`    
+          if(ayatObj.word_translation_en_iipc != undefined)
+               query += `,word_translation_en_iipc = '${ayatObj.word_translation_en_iipc}'` 
+         
+               query += ` where word_id = ${ayatObj.word_id}`;
           await conn.query(query);
           return "row updated!";
      } catch (error) {
