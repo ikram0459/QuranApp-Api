@@ -5,7 +5,7 @@ export async function connect(): Promise<Pool> {
           connectionLimit : 10,
           host: "localhost",
           user: "root",
-          password: "",
+          password: "Password1!",
           database: "quranwbw"
     });
     return connection;
